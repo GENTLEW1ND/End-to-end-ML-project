@@ -7,6 +7,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
+from src.components.data_transformation import DataTransformation, DataTransformationConfig
+
 # Wherever we are perforiming the data injection componment there should be some inputs required by the data injection 
 # componment, the input can be like where we have to probably save the trianing data and where to save the test data 
 # and we are to save the raw data.
@@ -53,4 +55,7 @@ class DataIngestion:
 
 if __name__ == "__main__":
     obj=DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data, test_data=obj.initiate_data_ingestion()
+
+data_transformation=DataTransformation()
+data_transformation.initiate_data_transformation(train_data,test_data)
