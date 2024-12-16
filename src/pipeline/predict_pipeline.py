@@ -10,7 +10,7 @@ class PredictPipeline:
     def predict(self,features):
         try:
             model_path='artifacts\model.pkl'
-            preprocessor_path='artifacts\preprocessor.pkl'
+            preprocessor_path='artifacts\proprocessor.pkl'
             model=load_object(file_path=model_path)
             preprocessor=load_object(file_path=preprocessor_path)
             data_scaled=preprocessor.transform(features)
@@ -29,7 +29,7 @@ class CustomData:
         self.reading_score = reading_score
         self.writing_score = writing_score
 
-    def get_data_as_data_frame(self):
+    def get_data_as_data_frame(self): ## Whatever data we are getting from the website it will be mapped in the form of a dictonary using this particular function.
         try:
             custom_data_input_dict = {
                 "gender": [self.gender],
